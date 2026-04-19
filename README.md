@@ -21,7 +21,7 @@ console.log(`Signed in as ${me.email}`);
 const post = await outreply.posts.schedule({
   page_id: "65f...",
   message: "Launching tomorrow 🚀",
-  publish_at: "2026-05-01T10:00:00Z",
+  scheduled_at: "2026-05-01T10:00:00Z",
 });
 
 // 3. Subscribe to real-time events
@@ -114,7 +114,6 @@ try {
 ```ts
 new OutReply({
   apiKey: process.env.OUTREPLY_API_KEY!,
-  baseUrl: "https://api.outreply.com/api/v1",
   timeoutMs: 30_000,
   maxRetries: 2, // 3 attempts total
   defaultHeaders: { "X-Tenant": "acme-co" },

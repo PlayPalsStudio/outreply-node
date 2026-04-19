@@ -33,7 +33,7 @@ export interface RequestOptions {
 
 const DEFAULT_BASE = "https://api.outreply.com/api/v1";
 const MUTATING = new Set(["POST", "PATCH", "DELETE", "PUT"]);
-const SDK_VERSION = "1.0.0";
+const SDK_VERSION = "1.0.1";
 
 function buildQuery(q?: RequestOptions["query"]): string {
   if (!q) return "";

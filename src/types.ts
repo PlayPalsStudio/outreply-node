@@ -41,7 +41,7 @@ export interface ScheduledPost {
   page_id: string;
   message: string;
   media_ids?: string[];
-  publish_at: string;
+  scheduled_at: string;
   status: "scheduled" | "publishing" | "published" | "failed";
   external_post_id?: string;
   error?: string | null;

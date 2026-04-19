@@ -22,7 +22,7 @@ describe("OutReply client", () => {
     await client.posts.schedule({
       page_id: "page_1",
       message: "hi",
-      publish_at: "2026-05-01T10:00:00Z",
+      scheduled_at: "2026-05-01T10:00:00Z",
     });
 
     expect(calls).toHaveLength(1);
@@ -45,7 +45,7 @@ describe("OutReply client", () => {
     ]);
     const client = new OutReply({ apiKey: "x", fetch: fn, maxRetries: 0 });
     await expect(
-      client.posts.schedule({ page_id: "", message: "", publish_at: "" })
+      client.posts.schedule({ page_id: "", message: "", scheduled_at: "" })
     ).rejects.toBeInstanceOf(OutReplyValidationError);
   });
 });

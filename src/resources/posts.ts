@@ -5,7 +5,7 @@ export interface SchedulePostParams {
   page_id: string;
   message: string;
   media_ids?: string[];
-  publish_at: string; // ISO 8601
+  scheduled_at: string; // ISO 8601
   link?: string;
   first_comment?: string;
 }

@@ -1,6 +1,6 @@
 {
   "name": "@outreply/node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Official OutReply Node.js & TypeScript SDK — schedule posts, moderate comments, and subscribe to signed webhooks.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

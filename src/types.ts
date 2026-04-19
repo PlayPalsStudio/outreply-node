@@ -47,6 +47,21 @@ export interface ScheduledPost {
   error?: string | null;
 }
 
+export interface PublishedPost {
+  post_id: string;
+  platform: string;
+  page_id: string;
+  brand_id: string;
+  message?: string;
+  media?: Array<{ src: string; type: string }>;
+  status: "completed" | "failed" | string;
+  was_published: boolean;
+  first_comment?: string | null;
+  platform_post_id?: string | null;
+  published_at: string;
+  published_record_id?: string | null;
+}
+
 export interface Comment {
   id: string;
   page_id: string;

@@ -24,6 +24,14 @@ const post = await outreply.posts.schedule({
   scheduled_at: "2026-05-01T10:00:00Z",
 });
 
+// 2b. …or publish one right now.
+const live = await outreply.posts.publish({
+  page_id: "65f...",
+  message: "We're live! 🎉",
+  media_urls: ["https://cdn.example.com/hero.jpg"],
+});
+console.log(live.platform_post_id);
+
 // 3. Subscribe to real-time events
 const hook = await outreply.webhooks.create({
   url: "https://example.com/webhooks/outreply",

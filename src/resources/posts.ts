@@ -1,5 +1,5 @@
 import type { HttpClient } from "../http.js";
-import type { Paginated, ScheduledPost } from "../types.js";
+import type { Paginated, PublishedPost, ScheduledPost } from "../types.js";
 
 export interface SchedulePostParams {
   page_id: string;
@@ -8,6 +8,15 @@ export interface SchedulePostParams {
   scheduled_at: string; // ISO 8601
   link?: string;
   first_comment?: string;
+}
+
+export interface PublishPostParams {
+  page_id: string;
+  message?: string;
+  media_ids?: string[];
+  media_urls?: string[];
+  first_comment?: string;
+  tiktok_settings?: Record<string, unknown>;
 }
 
 export class PostsResource {
@@ -21,6 +30,20 @@ export class PostsResource {
     return this.http.request<ScheduledPost>({
       method: "POST",
       path: "/posts/schedule",
+      body: params,
+      idempotencyKey: opts.idempotencyKey,
+    });
+  }
+
+  /**
+   * Publish a post immediately. Blocks until the upstream platform
+   * accepts the post — expect multi-second latency for large media.
+   * An `Idempotency-Key` is attached automatically — safe to retry.
+   */
+  publish(params: PublishPostParams, opts: { idempotencyKey?: string } = {}): Promise<PublishedPost> {
+    return this.http.request<PublishedPost>({
+      method: "POST",
+      path: "/posts/publish",
       body: params,
       idempotencyKey: opts.idempotencyKey,
     });

@@ -1,0 +1,13 @@
+# Keep published tarball minimal — ship only built artefacts + docs
+src
+test
+tsconfig.json
+tsup.config.*
+vitest.config.*
+.github
+.vscode
+.idea
+coverage
+*.log
+.env
+.env.*
